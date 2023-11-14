@@ -30,6 +30,7 @@ struct CheckBox: View {
                     .frame(width: size, height: size)
             }
         }
+        .buttonStyle(.plain)
     }
     
     func size(_ size: CGFloat) -> Self {

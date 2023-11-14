@@ -23,7 +23,6 @@ struct SwitchLanguageView: View {
         }
         .padding(.vertical, 5)
         .padding(.horizontal)
-        .border(width: 1, edges: [.bottom], color: .gray)
         .onChange(of: language) { _, _ in }
     }
     

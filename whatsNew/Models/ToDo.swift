@@ -10,21 +10,21 @@ import SwiftData
 
 @Model
 final public class ToDo {
-    @Attribute(.unique) var uuid: UUID
+    var uuid: UUID
     var title: String
     var complete: Bool
-    var createdDate: TimeInterval
-    var timestamp: TimeInterval
+    var createdDate: Date
+    var timestamp: Date
     
     init(
-        title: String = "",
-        complete: Bool = false,
-        timestamp: TimeInterval = Date().timeIntervalSince1970
+        title: String,
+        complete: Bool,
+        timestamp: Date
     ) {
         self.uuid = UUID()
         self.title = title
         self.complete = complete
-        self.createdDate = Date().timeIntervalSince1970
+        self.createdDate = Date()
         self.timestamp = timestamp
     }
 }

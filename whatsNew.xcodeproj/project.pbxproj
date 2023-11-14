@@ -20,7 +20,10 @@
 		5A64EE3C2B022F1B00061662 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64EE3B2B022F1B00061662 /* ViewExtensions.swift */; };
 		5A64EE3F2B0237B000061662 /* CreateToDoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64EE3E2B0237B000061662 /* CreateToDoView.swift */; };
 		5A64EE412B023D3200061662 /* TextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64EE402B023D3200061662 /* TextFieldExtensions.swift */; };
-		5A64EE432B023D6700061662 /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64EE422B023D6700061662 /* DatePicker.swift */; };
+		5A64EE432B023D6700061662 /* DatePickerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A64EE422B023D6700061662 /* DatePickerExtensions.swift */; };
+		5AC8C75F2B031DEF00D51685 /* CreateTodoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC8C75E2B031DEF00D51685 /* CreateTodoViewModel.swift */; };
+		5AC8C7612B03226C00D51685 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC8C7602B03226C00D51685 /* RootViewModel.swift */; };
+		5AC94FAF2B036C560091F283 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC94FAE2B036C560091F283 /* DateExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,7 +41,10 @@
 		5A64EE3B2B022F1B00061662 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		5A64EE3E2B0237B000061662 /* CreateToDoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateToDoView.swift; sourceTree = "<group>"; };
 		5A64EE402B023D3200061662 /* TextFieldExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtensions.swift; sourceTree = "<group>"; };
-		5A64EE422B023D6700061662 /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
+		5A64EE422B023D6700061662 /* DatePickerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerExtensions.swift; sourceTree = "<group>"; };
+		5AC8C75E2B031DEF00D51685 /* CreateTodoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTodoViewModel.swift; sourceTree = "<group>"; };
+		5AC8C7602B03226C00D51685 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
+		5AC94FAE2B036C560091F283 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +84,7 @@
 				5A64EE292B0200D500061662 /* Features */,
 				5A64EE172B01FE5F00061662 /* whatsNewApp.swift */,
 				5A64EE192B01FE5F00061662 /* RootView.swift */,
+				5AC8C7602B03226C00D51685 /* RootViewModel.swift */,
 				5A64EE1F2B01FE6100061662 /* Preview Content */,
 			);
 			path = whatsNew;
@@ -132,7 +139,8 @@
 				5A64EE342B02105600061662 /* TextExtensions.swift */,
 				5A64EE3B2B022F1B00061662 /* ViewExtensions.swift */,
 				5A64EE402B023D3200061662 /* TextFieldExtensions.swift */,
-				5A64EE422B023D6700061662 /* DatePicker.swift */,
+				5A64EE422B023D6700061662 /* DatePickerExtensions.swift */,
+				5AC94FAE2B036C560091F283 /* DateExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -148,9 +156,18 @@
 		5A64EE3D2B02378200061662 /* SwiftData-ModelContext */ = {
 			isa = PBXGroup;
 			children = (
-				5A64EE3E2B0237B000061662 /* CreateToDoView.swift */,
+				5AC8C75D2B031DD500D51685 /* CreateToDo */,
 			);
 			path = "SwiftData-ModelContext";
+			sourceTree = "<group>";
+		};
+		5AC8C75D2B031DD500D51685 /* CreateToDo */ = {
+			isa = PBXGroup;
+			children = (
+				5A64EE3E2B0237B000061662 /* CreateToDoView.swift */,
+				5AC8C75E2B031DEF00D51685 /* CreateTodoViewModel.swift */,
+			);
+			path = CreateToDo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,12 +244,15 @@
 			files = (
 				5A64EE2F2B020A0200061662 /* SwitchLanguageView.swift in Sources */,
 				5A64EE382B021ABC00061662 /* ToDo.swift in Sources */,
+				5AC8C7612B03226C00D51685 /* RootViewModel.swift in Sources */,
 				5A64EE3C2B022F1B00061662 /* ViewExtensions.swift in Sources */,
 				5A64EE1A2B01FE5F00061662 /* RootView.swift in Sources */,
 				5A64EE2D2B02012E00061662 /* AppLanguages.swift in Sources */,
 				5A64EE3A2B022EC200061662 /* MakeButtons.swift in Sources */,
+				5AC94FAF2B036C560091F283 /* DateExtensions.swift in Sources */,
+				5AC8C75F2B031DEF00D51685 /* CreateTodoViewModel.swift in Sources */,
 				5A64EE352B02105600061662 /* TextExtensions.swift in Sources */,
-				5A64EE432B023D6700061662 /* DatePicker.swift in Sources */,
+				5A64EE432B023D6700061662 /* DatePickerExtensions.swift in Sources */,
 				5A64EE3F2B0237B000061662 /* CreateToDoView.swift in Sources */,
 				5A64EE182B01FE5F00061662 /* whatsNewApp.swift in Sources */,
 				5A64EE412B023D3200061662 /* TextFieldExtensions.swift in Sources */,

@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct CreateToDoView: View {
+    @EnvironmentObject var viewModel: CreateTodoViewModel
+    @Environment(\.presentationMode) var presentationMode
+    
     var headerView: some View {
         HStack {
             Spacer()
             Button(action: {
-                
+                viewModel.add()
+                presentationMode.wrappedValue.dismiss()
             }) {
                 Text("DONE")
                     .font(.headline)
@@ -30,8 +34,9 @@ struct CreateToDoView: View {
                     .font(.title)
                     .fontWeight(.bold)
                     .environmentLocale
-                TextField("TITLE_PLACEHOLDER", text: .constant(""))
+                TextField("TITLE_PLACEHOLDER", text: $viewModel.title)
                     .environmentLocale
+                    .autocorrectionDisabled()
                     .frame(height: 40)
                     .border(width: 0.5, edges: [.bottom], color: .gray)
             }
@@ -42,7 +47,7 @@ struct CreateToDoView: View {
                     .fontWeight(.bold)
                     .environmentLocale
                 
-                DatePicker("", selection: .constant(Date()))
+                DatePicker("", selection: $viewModel.timestamp)
                     .environmentLocale
                     .datePickerStyle(.compact)
             }
@@ -55,4 +60,5 @@ struct CreateToDoView: View {
 
 #Preview {
     CreateToDoView()
+        .environmentObject(CreateTodoViewModel.preview)
 }

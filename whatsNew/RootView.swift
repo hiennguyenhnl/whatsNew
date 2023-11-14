@@ -10,9 +10,7 @@ import SwiftData
 
 struct RootView: View {
     @AppStorage(AppLanguages.APPLANGUAGE) var language: String = AppLanguages.en.rawValue
-    @Environment(\.modelContext) private var context
-    @Query(sort: \ToDo.createdDate, order: .forward) var toDoList: [ToDo]
-    @State var isShowAddNew: Bool = false
+    @EnvironmentObject var viewModel: RootViewModel
     
     var headerView: some View {
         HStack {
@@ -26,7 +24,7 @@ struct RootView: View {
     }
     
     var addNew: some View {
-        Button(action: { isShowAddNew.toggle() }) {
+        Button(action: { viewModel.isShowAddNew.toggle() }) {
             HStack {
                 Image(systemName: "plus")
                     .fontWeight(.bold)
@@ -39,16 +37,23 @@ struct RootView: View {
     }
     
     var listView: some View {
-        List(toDoList) { item in
+        List(viewModel.toDoList) { item in
             HStack {
                 CheckBox(isSelected: item.complete) {
                     item.complete.toggle()
                 }
                 Text(item.title)
+                Spacer()
+                HStack {
+                    Image(systemName: "clock")
+                        .resizable()
+                        .frame(width: 15, height: 15)
+                    Text(item.timestamp.formatted(Date.FormatStyle.time))
+                }
             }
             .swipeActions(edge: .trailing) {
                 Button(action: {
-                    context.delete(item)
+                    viewModel.delete(item: item)
                 }) {
                     Image(systemName: "trash")
                 }
@@ -66,17 +71,23 @@ struct RootView: View {
             
             Spacer()
         }
-        .sheet(isPresented: $isShowAddNew) {
-            CreateToDoView()
+        .sheet(isPresented: $viewModel.isShowAddNew) {
+            if let createTodoViewModel = viewModel.createTodoViewModel {
+                CreateToDoView()
+                    .environmentObject(createTodoViewModel)
+            }
         }
         .padding(.horizontal)
         .onChange(of: language) { _, _ in }
+        .onAppear {
+            viewModel.onAppear()
+        }
     }
 }
 
 
 #Preview {
     RootView()
-        .modelContainer(for: ToDo.self, inMemory: true)
+        .environmentObject(RootViewModel.preview)
         .environment(\.locale, AppLanguages.getAppLanguage.locale)
 }
